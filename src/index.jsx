@@ -6,8 +6,8 @@ import Button from "./components/Button";
 import Notification from "./components/Notification";
 import HSLToHex from "./components/color-conversion";
 
-function random(max) {
-    return Math.floor(Math.random() * max);
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 class App extends React.Component {
@@ -20,6 +20,12 @@ class App extends React.Component {
 
         this.handleGeneration = this.handleGeneration.bind(this);
         this.handleCardClick = this.handleCardClick.bind(this);
+    }
+
+    generateColors() {
+        return Array.from({ length: 4 }, () => {
+            return HSLToHex(random(0, 360), 85, 70);
+        });
     }
 
     handleGeneration(e) {
@@ -35,12 +41,6 @@ class App extends React.Component {
         this.setState({ notificationVisible: true });
 
         setTimeout(() => this.setState({ notificationVisible: false }), 2000);
-    }
-
-    generateColors() {
-        return Array.from({ length: 4 }, () => {
-            return HSLToHex(random(360), 80, 70);
-        });
     }
 
     render() {
