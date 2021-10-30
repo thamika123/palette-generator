@@ -18,12 +18,16 @@ class App extends React.Component {
             notificationVisible: false,
         };
 
-        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleGeneration = this.handleGeneration.bind(this);
         this.handleCardClick = this.handleCardClick.bind(this);
     }
 
-    handleButtonClick() {
-        this.setState({ colors: this.generateColors() });
+    handleGeneration(e) {
+        if (e.type === "click") {
+            this.setState({ colors: this.generateColors() });
+        } else if (e.code === "space") {
+            this.setState({ colors: this.generateColors() });
+        }
     }
 
     handleCardClick(color) {
@@ -41,7 +45,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="text-center">
+            <div className="text-center" onKeyDown={this.handleGeneration}>
                 {this.state.notificationVisible && <Notification />}
 
                 <h1 className="mt-40 text-4xl font-sans font-black text-gray-700">
@@ -60,7 +64,7 @@ class App extends React.Component {
                 </div>
                 <Button
                     text="Generate palette"
-                    onClick={this.handleButtonClick}
+                    onClick={this.handleGeneration}
                 />
             </div>
         );
