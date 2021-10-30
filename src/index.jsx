@@ -23,8 +23,8 @@ class App extends React.Component {
     }
 
     generateColors() {
-        return Array.from({ length: 4 }, () => {
-            return HSLToHex(random(0, 360), 85, 70);
+        return [1, 2, 3, 4].map(x => {
+            return { id: x, color: HSLToHex(random(0, 360), 85, 70) };
         });
     }
 
@@ -52,11 +52,11 @@ class App extends React.Component {
                     Color palette generator
                 </h1>
                 <div className="flex flex-row flex-wrap justify-center mt-16">
-                    {this.state.colors.map(color => {
+                    {this.state.colors.map(item => {
                         return (
                             <Card
-                                key={color}
-                                color={color}
+                                key={item.id}
+                                color={item.color}
                                 onClick={this.handleCardClick}
                             />
                         );
