@@ -1,7 +1,7 @@
 # Palette Generator
 
 A website for generating color palettes, built with React and Tailwind CSS.
-See it live [here](react-palette-gen.netlify.app). It supports:
+See it live [here](https://react-palette-gen.netlify.app). It supports:
 
 -   Generating palettes of 4 colors.
 -   Generating new palettes using either the spacebar or mouse.
