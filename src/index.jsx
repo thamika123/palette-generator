@@ -9,7 +9,7 @@ function random(max) {
 
 function App() {
     const colors = Array.from({ length: 4 }, () => {
-        return `hsl(${random(360)}, 80%, 70%)`;
+        return { h: random(360), s: 80, l: 70 };
     });
 
     return (
