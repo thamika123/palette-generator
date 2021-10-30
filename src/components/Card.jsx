@@ -1,6 +1,9 @@
 function Card(props) {
     return (
-        <div className="w-72 h-96 m-8 shadow-lg rounded-2xl bg-white">
+        <div
+            className="w-72 h-96 m-8 shadow-lg rounded-2xl bg-white"
+            onClick={() => props.onClick(props.color)}
+        >
             <div
                 className="w-full h-80 rounded-t-2xl"
                 style={{ background: props.color }}
