@@ -5,7 +5,14 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        fontFamily: {
+            "sans": ["Lato"],
+        },            
+        extend: {
+            boxShadow: {
+                "lg": "5px 10px 30px #e5e7eb",
+            },
+        },
     },
     variants: {
         extend: {},
